@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+
+<head>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+
+    body {
+      padding: 10px 5px;
+      width: 450px;
+      text-align: center;
+      font-family: "Nanum Gothic";
+      font-size: 18px;
+    }
+
+    .tab-slider--nav {
+      width: 100%;
+      float: left;
+      margin-bottom: 20px;
+    }
+
+    .tab-slider--tabs {
+      display: block;
+      margin: 10px 50px;
+      padding: 0;
+      list-style: none;
+      position: relative;
+      border-radius: 35px;
+      overflow: hidden;
+      background: #eee;
+      height: 35px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .tab-slider--tabs:after {
+      content: "";
+      width: 50%;
+      background: rgb(255, 145, 123);
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: all 250ms ease-in-out;
+      border-radius: 35px;
+    }
+
+    .tab-slider--tabs.slide:after {
+      left: 50%;
+    }
+
+    .tab-slider--trigger {
+      font-size: 12px;
+      line-height: 1;
+      font-weight: bold;
+      color: rgb(255, 145, 123);
+      text-transform: uppercase;
+      text-align: center;
+      padding: 11px 20px;
+      position: relative;
+      z-index: 2;
+      cursor: pointer;
+      display: inline-block;
+      transition: color 250ms ease-in-out;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .tab-slider--trigger.active {
+      color: #fff;
+    }
+
+    .tab-slider--body {
+      margin-bottom: 20px;
+    }
+
+    table.type11 {
+      font-family: "Nanum Gothic";
+      vertical-align: middle;
+      border-collapse: collapse;
+      text-align: center;
+      border-radius: 1em;
+      overflow: hidden;
+      margin: 0 10px 20px;
+    }
+
+    table tr:first-child th {
+      border-top: 0;
+    }
+
+    table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    table tr td:first-child,
+    table tr th:first-child {
+      border-left: 0;
+    }
+
+    table tr td:last-child,
+    table tr th:last-child {
+      border-right: 0;
+    }
+
+    table.type11 th {
+      font-size: 10px;
+      padding: 10px;
+      font-weight: bold;
+      color: #fff;
+      border: 3px dashed #bbbbbb;
+      background: rgb(255, 145, 123);
+    }
+
+    table.type11 td {
+      font-size: 20px;
+      width: 155px;
+      padding: 10px;
+      border: 3px dashed #bbbbbb;
+      background: #eee;
+    }
+  </style>
+
+</head>
+
+
+<body>
+  <img src="./images/img_shirt.png" style="width: 100px; height: 100px; margin: 20px 100px 10px;">
+
+  <div class="container">
+    <div class="tab-slider--nav">
+      <ul class="tab-slider--tabs">
+        <li class="tab-slider--trigger active" rel="tab1">normal</li>
+        <li class="tab-slider--trigger" rel="tab2">over-fit</li>
+      </ul>
+    </div>
+    <div class="tab-slider--container">
+      <div id="tab1" class="tab-slider--body">
+
+        <div style="text-align: right">
+          <img src="./images/img_flow_chart.png" style="width: 14px; height: auto;">
+          <span style="font-size: 12px; margin-right: 20px;">추세로 보기</span>
+        </div>
+        <table class="type11">
+          <thead>
+            <tr>
+              <th scope="cols">어깨</th>
+              <th scope="cols">가슴</th>
+              <th scope="cols">암홀</th>
+              <th scope="cols">소매기장</th>
+              <th scope="cols">소매단</th>
+              <th scope="cols">총장</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>+3</th>
+              <td>-1</th>
+              <td>+2</th>
+              <td>0</th>
+              <td>+2</th>
+              <td>0</th>
+            </tr>
+          </tbody>
+        </table>
+        <span>사이즈 S를 추천합니다</span>
+  <img src="./images/ic_arrow_down.png" style="width: 15px; height: 15px; align-content: right; margin-left: 5px">
+      </div>
+      <div id="tab2" class="tab-slider--body">
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script>
+    $("document").ready(function () {
+      $(".tab-slider--body").hide();
+      $(".tab-slider--body:first").show();
+    });
+
+    $(".tab-slider--nav li").click(function () {
+      $(".tab-slider--body").hide();
+      var activeTab = $(this).attr("rel");
+      $("#" + activeTab).fadeIn();
+      if ($(this).attr("rel") == "tab2") {
+        $('.tab-slider--tabs').addClass('slide');
+      } else {
+        $('.tab-slider--tabs').removeClass('slide');
+      }
+      $(".tab-slider--nav li").removeClass("active");
+      $(this).addClass("active");
+    });
+
+  </script>
+
+
+
+</body>
+
+</html>
