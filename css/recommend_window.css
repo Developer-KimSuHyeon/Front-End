@@ -1,0 +1,116 @@
+#recommend_container{
+    padding: 10px 5px;
+    width: 450px;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .tab-slider--nav {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+  }
+
+  .tab-slider--tabs {
+    display: block;
+    margin: 10px 50px;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    border-radius: 35px;
+    overflow: hidden;
+    background: #eee;
+    height: 35px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .tab-slider--tabs:after {
+    content: "";
+    width: 50%;
+    background: rgb(255, 145, 123);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 250ms ease-in-out;
+    border-radius: 35px;
+  }
+
+  .tab-slider--tabs.slide:after {
+    left: 50%;
+  }
+
+  .tab-slider--trigger {
+    font-size: 12px;
+    line-height: 1;
+    font-weight: bold;
+    color: rgb(255, 145, 123);
+    text-transform: uppercase;
+    text-align: center;
+    padding: 11px 20px;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    display: inline-block;
+    transition: color 250ms ease-in-out;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .tab-slider--trigger.active {
+    color: #fff;
+  }
+
+  .tab-slider--body {
+    margin-bottom: 20px;
+  }
+
+  table.type11 {
+    font-family: "Nanum Gothic";
+    vertical-align: middle;
+    border-collapse: collapse;
+    text-align: center;
+    border-radius: 1em;
+    overflow: hidden;
+    margin: 0 10px 20px;
+  }
+
+  table.type11 tr:first-child th {
+    border-top: 0;
+  }
+
+  table.type11 tr:last-child td {
+    border-bottom: 0;
+  }
+
+  table.type11 tr td:first-child,
+  table.type11 tr th:first-child {
+    border-left: 0;
+  }
+
+  table.type11 tr td:last-child,
+  table.type11 tr th:last-child {
+    border-right: 0;
+  }
+
+  table.type11 th {
+    font-size: 10px;
+    padding: 10px;
+    font-weight: bold;
+    color: #fff;
+    border: 3px dashed #bbbbbb;
+    background: rgb(255, 145, 123);
+  }
+
+  table.type11 td {
+    font-size: 20px;
+    width: 155px;
+    padding: 10px;
+    border: 3px dashed #bbbbbb;
+    background: #eee;
+  }

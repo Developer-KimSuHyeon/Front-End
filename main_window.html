@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <script src="./jquery-3.4.1.min/jquery-3.4.1.min.js"></script>
+  <script src="./js/element_controller.js"></script>
+
+  <link href="./css/input_body_window.css" type="text/css" rel="stylesheet" />
+  <link href="./css/main_window.css" type="text/css" rel="stylesheet" />
+  <link href="./css/like_fit_window.css" type="text/css" rel="stylesheet" />
+  <link href="./css/recommend_window.css" type="text/css" rel="stylesheet" />
+
+  <style type="text/css">
+    @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+
+    body {
+      font-family: 'Nanum Gothic';
+    }
+
+    #login_container {
+      padding: 30px 10px;
+      width: 250px;
+      text-align: center;
+    }
+
+    #login_button {
+      margin-top: 10px;
+      padding: 15px 5px;
+      width: 230px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 12px;
+      cursor: pointer;
+      border-radius: 10px;
+      outline: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="login_container">
+    <img src="./images/img_centime_logo.png"
+      style="width: 100px; height: 100px; margin-bottom: 50px; text-align: center;">
+
+    <button id="login_button" style="background-color:rgb(255, 145, 123); border: none;">구글 아이디로 로그인</button>
+  </div>
+
+  <div id="body_size_input_container">
+    <form>
+      <strong>키와 몸무게를 입력해주세요</strong>
+      <div class="input_group">
+        <input type="number" required="required" /><span class="highlight"></span><span class="bar"></span>
+        <label>키</label>
+      </div>
+      <div class="input_group">
+        <input type="number" required="required" /><span class="highlight"></span><span class="bar"></span>
+        <label>몸무게</label>
+      </div>
+      <div id="btn-box">
+        <button id="submit_button">완료</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="main_container">
+    <div id="main_menu">
+      <img id="input_size_menu" src="./images/img_taperuler.png" style="width: 70px; height: 70px;">
+    </div>
+    <div id="main_menu">
+      <img id="like_menu" src="./images/img_heart_empty.png" style="width: 70px; height: 70px; margin-top: 5px">
+    </div>
+    <div id="main_menu">
+      <img id="recommend_menu" src="./images/img_recommend.png" style="width: 70px; height: 70px; margin-top: 5px">
+    </div>
+  </div>
+
+  <div id="like_container">
+    <button class="fit_button" id="like_column1">skinny </button>
+    <button class="fit_button" id="like_column2">straight</button>
+    <button class="fit_button" id="like_column3">wide</button>
+  </div>
+  <div id="recommend_container">
+    <img id = "back_button" src="./images/ic_back.png" style="width: 20px; height: 20px; float: left;">
+   
+    <img src="./images/img_shirt.png" style="width: 100px; height: 100px; margin: 20px 100px 10px;">
+    <div class="tab-slider--nav">
+      <ul class="tab-slider--tabs">
+        <li class="tab-slider--trigger active" rel="tab1">normal</li>
+        <li class="tab-slider--trigger" rel="tab2">over-fit</li>
+      </ul>
+    </div>
+    <div class="tab-slider--container">
+      <div id="tab1" class="tab-slider--body">
+
+        <div style="text-align: right">
+          <img src="./images/img_flow_chart.png" style="width: 14px; height: auto;">
+          <span style="font-size: 12px; margin-right: 20px;">추세로 보기</span>
+        </div>
+        <table class="type11">
+          <thead>
+            <tr>
+              <th scope="cols">어깨</th>
+              <th scope="cols">가슴</th>
+              <th scope="cols">암홀</th>
+              <th scope="cols">소매기장</th>
+              <th scope="cols">소매단</th>
+              <th scope="cols">총장</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>+3</th>
+              <td>-1</th>
+              <td>+2</th>
+              <td>0</th>
+              <td>+2</th>
+              <td>0</th>
+            </tr>
+          </tbody>
+        </table>
+        <span>사이즈 S를 추천합니다</span>
+        <img src="./images/ic_arrow_down.png" style="width: 15px; height: 15px; align-content: right; margin-left: 5px">
+      </div>
+      <div id="tab2" class="tab-slider--body">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
