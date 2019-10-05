@@ -6,10 +6,13 @@
   <script src="./jquery-3.4.1.min/jquery-3.4.1.min.js"></script>
   <script src="./js/element_controller.js"></script>
 
+  <link href="./css/input.css" type="text/css" rel="stylesheet" />
+
   <link href="./css/input_body_window.css" type="text/css" rel="stylesheet" />
   <link href="./css/main_window.css" type="text/css" rel="stylesheet" />
   <link href="./css/like_fit_window.css" type="text/css" rel="stylesheet" />
   <link href="./css/recommend_window.css" type="text/css" rel="stylesheet" />
+  <link href="./css/input_clothes_window.css" type="text/css" rel="stylesheet" />
 
   <style type="text/css">
     @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
@@ -48,18 +51,18 @@
   </div>
 
   <div id="body_size_input_container">
-    <form>
+    <form id="info-form">
       <strong>키와 몸무게를 입력해주세요</strong>
       <div class="input_group">
-        <input type="number" required="required" /><span class="highlight"></span><span class="bar"></span>
-        <label>키</label>
+        <input type="number" required /><span class="highlight"></span><span class="bar"></span>
+        <label class="body_size">키</label>
       </div>
       <div class="input_group">
-        <input type="number" required="required" /><span class="highlight"></span><span class="bar"></span>
-        <label>몸무게</label>
+        <input type="number" required /><span class="highlight"></span><span class="bar"></span>
+        <label class="body_size">몸무게</label>
       </div>
       <div id="btn-box">
-        <button id="submit_button">완료</button>
+        <button type="submit" id="submit_button">완료</button>
       </div>
     </form>
   </div>
@@ -82,8 +85,8 @@
     <button class="fit_button" id="like_column3">wide</button>
   </div>
   <div id="recommend_container">
-    <img id = "back_button" src="./images/ic_back.png" style="width: 20px; height: 20px; float: left;">
-   
+    <img id="back_button" src="./images/ic_back.png" style="width: 20px; height: 20px; float: left;">
+
     <img src="./images/img_shirt.png" style="width: 100px; height: 100px; margin: 20px 100px 10px;">
     <div class="tab-slider--nav">
       <ul class="tab-slider--tabs">
@@ -127,6 +130,66 @@
       </div>
     </div>
   </div>
+
+  <div id=clothes_category_input_container>
+    <label class="clothes_category_container">outer
+      <input type="radio" checked="checked" name="radio">
+      <span class="checkmark"></span>
+    </label>
+    <label class="clothes_category_container">top
+      <input type="radio" name="radio">
+      <span class="checkmark"></span>
+    </label>
+    <label class="clothes_category_container">pants
+      <input type="radio" name="radio">
+      <span class="checkmark"></span>
+    </label>
+    <label class="clothes_category_container">skirt
+      <input type="radio" name="radio">
+      <span class="checkmark"></span>
+    </label>
+    <label class="clothes_category_container">one-piece
+      <input type="radio" name="radio">
+      <span class="checkmark"></span>
+    </label>
+    <div class="btn-box">
+      <button id="submit_button_small" type="submit">완료</button>
+    </div>
+  </div>
+
+  <div id="clothes_size_input_container">
+    <form>
+      <strong>등록하려는 옷의 수치를 입력해주세요</strong>
+      <div class="input_group">
+        <input type="number" required="required" /><span class="highlight"></span><span class="bar"></span>
+        <label class="clothes_size">어깨</label>
+      </div>
+      <div class="input_group">
+        <input type="number" required="required" /><span class="highlight"></span><span class="bar"></span>
+        <label class="clothes_size">가슴</label>
+      </div>
+      <div class="input_group">
+        <input type="number" required="required" /><span class="highlight"></span><span class="bar"></span>
+        <label class="clothes_size">암홀</label>
+      </div>
+      <div class="input_group">
+        <input type="number" required="required" /><span class="highlight"></span><span class="bar"></span>
+        <label class="clothes_size">소매기장</label>
+      </div>
+      <div class="input_group">
+        <input type="number" required="required" /><span class="highlight"></span><span class="bar"></span>
+        <label class="clothes_size">소매단</label>
+      </div>
+      <div class="input_group">
+        <input type="number" required="required" /><span class="highlight"></span><span class="bar"></span>
+        <label class="clothes_size">총장</label>
+      </div>
+      <div id="btn-box">
+        <button id="submit_button_small">완료</button>
+      </div>
+    </form>
+  </div>
+
 </body>
 
 </html>

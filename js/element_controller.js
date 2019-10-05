@@ -1,24 +1,21 @@
 $(document).ready(function () {
 
-    $("#body_size_input_container").hide();
-    $("#main_container").hide();
-    $("#like_container").hide();
-    $("#recommend_container").hide();
-
     $("#login_button").click(function () {
         $("#login_container").hide();
         $("#body_size_input_container").show();
     });
 
-    $("#submit_button").click(function () {
-        $('body').css({
-            'background-color': 'rgb(255, 145, 123)'
-        });
-        $("#body_size_input_container").hide();
-        $("#main_container").show();
-    });
-
-    var checknum = 0
+    let checknum = 0;
+    $("#info-form").submit((event) => {
+        event.preventDefault();
+        if ($("#info-form").get(0).checkValidity()) {
+            console.log('valid!!')
+            $('#body_size_input_container').hide();
+            $('#main_container').show();
+        } else {
+            console.log("invalid!!")
+        }    
+    })
 
     $("#like_menu").click(function () {
         $("#main_container").hide();
@@ -30,6 +27,29 @@ $(document).ready(function () {
         $("#like_column1").html("skinny");
         $("#like_column2").html("straight");
         $("#like_column3").html("wide");
+    });
+
+    $("#input_size_menu").click(() => {
+        $("#main_container").hide();
+        $("#clothes_category_input_container").show();
+        $('body').css({
+            'background-color': '#fff'
+        });
+    });
+
+    var window_num = 0
+    $("#submit_button_small").click(function () {
+
+        $("#clothes_category_input_container").hide();
+        $("#clothes_size_input_container").show();
+        window_num += 1
+        if(window_num > 1){
+            $("#clothes_size_input_container").hide();
+            $("#main_container").show();
+            $('body').css({
+                'background-color': '#fff'
+            });
+        }
     });
 
     $("#recommend_menu").click(function () {
@@ -50,6 +70,9 @@ $(document).ready(function () {
         if (checknum > 1) {
             $("#like_container").hide();
             $("#main_container").show();
+            $('body').css({
+                'background-color': '#fff'
+            });
         }
     });
 
@@ -69,9 +92,17 @@ $(document).ready(function () {
     $("#back_button").click(function () {
         $("#recommend_container").hide();
         $("#main_container").show();
-        $('body').css({
-            'background-color': 'rgb(255, 145, 123)'
-        });
+        // $('body').css({
+        //     'background-color': 'rgb(255, 145, 123)'
+        // });
     });
+
+
+    $("#body_size_input_container").hide();
+    $("#main_container").hide();
+    $("#like_container").hide();
+    $("#recommend_container").hide();
+    $("#clothes_category_input_container").hide();
+    $("#clothes_size_input_container").hide();
 
 });
