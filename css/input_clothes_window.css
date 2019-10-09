@@ -63,7 +63,7 @@
   transition: 300ms ease all;
 }
 
-#submit_button_small {
+.submit_button_small {
     margin-top: 10px;
     padding: 10px 5px;
     width: 60px;

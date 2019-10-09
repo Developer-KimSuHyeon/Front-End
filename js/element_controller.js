@@ -1,24 +1,25 @@
-$(document).ready(function () {
+$(document).ready(() => {
 
-    $("#login_button").click(function () {
+    $("#login_button").click(() => {
         $("#login_container").hide();
         $("#body_size_input_container").show();
     });
 
-    let checknum = 0;
+    
     $("#info-form").submit((event) => {
-        event.preventDefault();
+        event.preventDefault(); //prevent weird form error
         if ($("#info-form").get(0).checkValidity()) {
-            console.log('valid!!')
+            // console.log('valid!!')
             $('#body_size_input_container').hide();
-            $('#main_container').show();
+            $('#main-wrapper').show();
         } else {
-            console.log("invalid!!")
+            // console.log("invalid!!")
         }    
     })
 
-    $("#like_menu").click(function () {
-        $("#main_container").hide();
+    let checknum = 0;
+    $("#like_menu").click(() => {
+        $("#main-wrapper").hide();
         $("#like_container").show();
         $('body').css({
             'background-color': 'rgb(255, 145, 123)'
@@ -29,32 +30,41 @@ $(document).ready(function () {
         $("#like_column3").html("wide");
     });
 
+    $(".fit_button").click(() => {
+        $("#like_column1").html("S");
+        $("#like_column2").html("M");
+        $("#like_column3").html("L");
+        checknum += 1
+        if (checknum > 1) {
+            $("#like_container").hide();
+            $('body').css({
+                'background-color': '#fff'
+            });
+            $('#like_menu').attr("src", "./images/img_heart_fill.png");
+            $("#main-wrapper").show();
+            
+        }
+    });
+
     $("#input_size_menu").click(() => {
-        $("#main_container").hide();
+        $("#main-wrapper").hide();
         $("#clothes_category_input_container").show();
         $('body').css({
             'background-color': '#fff'
         });
     });
 
-    var window_num = 0
-    $("#submit_button_small").click(function () {
+     $(".submit_button_small").click(() => {
 
         $("#clothes_category_input_container").hide();
         $("#clothes_size_input_container").show();
-        window_num += 1
-        if(window_num > 1){
-            $("#clothes_size_input_container").hide();
-            $("#main_container").show();
-            $('body').css({
-                'background-color': '#fff'
-            });
-        }
+
     });
 
-    $("#recommend_menu").click(function () {
-        $("#main_container").hide();
+    $("#recommend_menu").click(() => {
+        $("#main-wrapper").hide();
         $("#recommend_container").show();
+        $("#recent_details_container").hide();
         $('body').css({
             'background-color': '#fff'
         });
@@ -62,46 +72,52 @@ $(document).ready(function () {
         $(".tab-slider--body:first").show();
     });
 
-    $(".fit_button").click(function () {
-        $("#like_column1").html("S");
-        $("#like_column2").html("M");
-        $("#like_column3").html("L");
-        checknum += 1
-        if (checknum > 1) {
-            $("#like_container").hide();
-            $("#main_container").show();
+    $(".tab-slider--nav li").click(function() {
+        $(".tab-slider--body").hide();
+        var activeTab = $(this).attr("rel");
+        $("#"+activeTab).fadeIn();
+          if($(this).attr("rel") == "tab2"){
+              $('.tab-slider--tabs').addClass('slide');
+          }else{
+              $('.tab-slider--tabs').removeClass('slide');
+          }
+        $(".tab-slider--nav li").removeClass("active");
+        $(this).addClass("active");
+      });
+      
+
+    $("#back_button").click(() => {
+        $("#recommend_container").hide();
+        $("#main-wrapper").show();
+    });
+
+    $("#size-form").submit((event) => {
+        event.preventDefault();
+        if ($("#size-form").get(0).checkValidity()) {
+            $('#clothes_size_input_container').hide().prop('required',false);
             $('body').css({
                 'background-color': '#fff'
             });
-        }
-    });
+            $('#main-wrapper').show();
+            
+        }   
+    })
 
-    $(".tab-slider--nav li").click(function () {
-        $(".tab-slider--body").hide();
-        var activeTab = $(this).attr("rel");
-        $("#" + activeTab).fadeIn();
-        if ($(this).attr("rel") == "tab2") {
-            $('.tab-slider--tabs').addClass('slide');
-        } else {
-            $('.tab-slider--tabs').removeClass('slide');
-        }
-        $(".tab-slider--nav li").removeClass("active");
-        $(this).addClass("active");
-    });
+    $(".collapsible").click(function() {
+        $('#recent_details_container').show();
+      });
 
-    $("#back_button").click(function () {
-        $("#recommend_container").hide();
-        $("#main_container").show();
-        // $('body').css({
-        //     'background-color': 'rgb(255, 145, 123)'
-        // });
-    });
 
+
+
+    $(".tab-slider--body").hide();
+    $(".tab-slider--body:first").show();
 
     $("#body_size_input_container").hide();
-    $("#main_container").hide();
+    $("#main-wrapper").hide();
     $("#like_container").hide();
     $("#recommend_container").hide();
+
     $("#clothes_category_input_container").hide();
     $("#clothes_size_input_container").hide();
 

@@ -13,6 +13,7 @@
   <link href="./css/like_fit_window.css" type="text/css" rel="stylesheet" />
   <link href="./css/recommend_window.css" type="text/css" rel="stylesheet" />
   <link href="./css/input_clothes_window.css" type="text/css" rel="stylesheet" />
+  <link href="./css/toggle_button.css" type="text/css" rel="stylesheet" />
 
   <style type="text/css">
     @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
@@ -67,15 +68,27 @@
     </form>
   </div>
 
-  <div id="main_container">
-    <div id="main_menu">
-      <img id="input_size_menu" src="./images/img_taperuler.png" style="width: 70px; height: 70px;">
-    </div>
-    <div id="main_menu">
-      <img id="like_menu" src="./images/img_heart_empty.png" style="width: 70px; height: 70px; margin-top: 5px">
-    </div>
-    <div id="main_menu">
-      <img id="recommend_menu" src="./images/img_recommend.png" style="width: 70px; height: 70px; margin-top: 5px">
+  <div id="main-wrapper">
+    <label class="toggle-label">
+      <div class="recommendation-toggle">
+        <input class="toggle-state" type="checkbox" name="check" value="check" />
+        <div class="toggle-inner">
+          <div class="indicator"></div>
+        </div>
+        <div class="active-bg"></div>
+      </div>
+      <!-- <div class="toggle-text">추천 모드</div> -->
+    </label>
+    <div id="main_container">
+      <div class="main_menu">
+        <img id="input_size_menu" src="./images/img_taperuler.png" style="width: 70px; height: 70px;">
+      </div>
+      <div class="main_menu">
+        <img id="like_menu" src="./images/img_heart_empty.png" style="width: 70px; height: 70px; margin-top: 8px">
+      </div>
+      <div class="main_menu">
+        <img id="recommend_menu" src="./images/img_recommend.png" style="width: 70px; height: 70px; margin-top: 8px">
+      </div>
     </div>
   </div>
 
@@ -97,11 +110,11 @@
     <div class="tab-slider--container">
       <div id="tab1" class="tab-slider--body">
 
-        <div style="text-align: right">
+        <div style="text-align: right;">
           <img src="./images/img_flow_chart.png" style="width: 14px; height: auto;">
           <span style="font-size: 12px; margin-right: 20px;">추세로 보기</span>
         </div>
-        <table class="type11">
+        <table class="size-table">
           <thead>
             <tr>
               <th scope="cols">어깨</th>
@@ -123,15 +136,67 @@
             </tr>
           </tbody>
         </table>
-        <span>사이즈 S를 추천합니다</span>
-        <img src="./images/ic_arrow_down.png" style="width: 15px; height: 15px; align-content: right; margin-left: 5px">
+        <span>추천 사이즈 : S</span>
+        <button type="button" class="collapsible">
+           <img src="./images/ic_arrow_down.png" style="width: 15px; height: 15px; align-content: right; margin-left: 5px">
+        </button>
       </div>
       <div id="tab2" class="tab-slider--body">
       </div>
     </div>
+    <div id="recent_details_container">
+      <table class="size-table">
+        <thead>
+          <tr>
+            <th scope="cols">어깨</th>
+            <th scope="cols">가슴</th>
+            <th scope="cols">암홀</th>
+            <th scope="cols">소매기장</th>
+            <th scope="cols">소매단</th>
+            <th scope="cols">총장</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>+3</th>
+            <td>-1</th>
+            <td>+2</th>
+            <td>0</th>
+            <td>+2</th>
+            <td>0</th>
+          </tr>
+        </tbody>
+      </table>
+      <table class="size-table">
+        <thead>
+          <tr>
+            <th scope="cols">어깨</th>
+            <th scope="cols">가슴</th>
+            <th scope="cols">암홀</th>
+            <th scope="cols">소매기장</th>
+            <th scope="cols">소매단</th>
+            <th scope="cols">총장</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>+3</th>
+            <td>-1</th>
+            <td>+2</th>
+            <td>0</th>
+            <td>+2</th>
+            <td>0</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
+
   <div id=clothes_category_input_container>
+    <strong>등록하려는 옷의</strong>
+    <br>
+    <strong style="margin-bottom: 5px;">카테고리를 선택해주세요</strong>
     <label class="clothes_category_container">outer
       <input type="radio" checked="checked" name="radio">
       <span class="checkmark"></span>
@@ -153,39 +218,39 @@
       <span class="checkmark"></span>
     </label>
     <div class="btn-box">
-      <button id="submit_button_small" type="submit">완료</button>
+      <button class="submit_button_small" type="submit">완료</button>
     </div>
   </div>
 
   <div id="clothes_size_input_container">
-    <form>
+    <form id="size-form">
       <strong>등록하려는 옷의 수치를 입력해주세요</strong>
       <div class="input_group">
-        <input type="number" required="required" /><span class="highlight"></span><span class="bar"></span>
+        <input type="number" required /><span class="highlight"></span><span class="bar"></span>
         <label class="clothes_size">어깨</label>
       </div>
       <div class="input_group">
-        <input type="number" required="required" /><span class="highlight"></span><span class="bar"></span>
+        <input type="number" required /><span class="highlight"></span><span class="bar"></span>
         <label class="clothes_size">가슴</label>
       </div>
       <div class="input_group">
-        <input type="number" required="required" /><span class="highlight"></span><span class="bar"></span>
+        <input type="number" required /><span class="highlight"></span><span class="bar"></span>
         <label class="clothes_size">암홀</label>
       </div>
       <div class="input_group">
-        <input type="number" required="required" /><span class="highlight"></span><span class="bar"></span>
+        <input type="number" required /><span class="highlight"></span><span class="bar"></span>
         <label class="clothes_size">소매기장</label>
       </div>
       <div class="input_group">
-        <input type="number" required="required" /><span class="highlight"></span><span class="bar"></span>
+        <input type="number" required /><span class="highlight"></span><span class="bar"></span>
         <label class="clothes_size">소매단</label>
       </div>
       <div class="input_group">
-        <input type="number" required="required" /><span class="highlight"></span><span class="bar"></span>
+        <input type="number" required /><span class="highlight"></span><span class="bar"></span>
         <label class="clothes_size">총장</label>
       </div>
       <div id="btn-box">
-        <button id="submit_button_small">완료</button>
+        <button class="submit_button_small">완료</button>
       </div>
     </form>
   </div>

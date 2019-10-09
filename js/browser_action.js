@@ -1,0 +1,1 @@
+// chrome.browserAction.setPopup({popup: './input_clothes_size_window.html'});
