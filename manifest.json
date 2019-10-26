@@ -11,7 +11,7 @@
      "background":
     {
         "scripts": ["./jquery-3.4.1.min/jquery-3.4.1.min.js",
-            "./js/element_controller.js",
+            "./js/element_controller.js", "./js/recommend_controller.js",
         "./js/browser_action.js"]
     },
 

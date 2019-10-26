@@ -35,7 +35,7 @@
     left: 0;
     height: 100%;
     width: 200%;
-    background: #FFD86C;
+    background: rgb(255, 145, 123);
     -webkit-transform: translate3d(-100%, 0, 0);
             transform: translate3d(-100%, 0, 0);
     transition: -webkit-transform 0.05s linear 0.17s;

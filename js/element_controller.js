@@ -3,6 +3,7 @@ $(document).ready(() => {
     $("#login_button").click(() => {
         $("#login_container").hide();
         $("#body_size_input_container").show();
+        console.log("valid!!")
     });
 
     
@@ -62,34 +63,38 @@ $(document).ready(() => {
     });
 
     $("#recommend_menu").click(() => {
-        $("#main-wrapper").hide();
-        $("#recommend_container").show();
-        $("#recent_details_container").hide();
-        $('body').css({
-            'background-color': '#fff'
-        });
-        $(".tab-slider--body").hide();
-        $(".tab-slider--body:first").show();
+        // $("#main-wrapper").hide();
+        // $("#recommend_container").show();
+        // $("#recent_details_container").hide();
+        // $('body').css({
+        //     'background-color': '#fff'
+        // });
+        // $(".tab-slider--body").hide();
+        // $(".tab-slider--body:first").show();
+        // // $("#recommend_menu").load("test.html");
+        window.location.href="recommend_window.html";
+        console.log("open recommendation window")
     });
 
-    $(".tab-slider--nav li").click(function() {
-        $(".tab-slider--body").hide();
-        var activeTab = $(this).attr("rel");
-        $("#"+activeTab).fadeIn();
-          if($(this).attr("rel") == "tab2"){
-              $('.tab-slider--tabs').addClass('slide');
-          }else{
-              $('.tab-slider--tabs').removeClass('slide');
-          }
-        $(".tab-slider--nav li").removeClass("active");
-        $(this).addClass("active");
-      });
-      
-
-    $("#back_button").click(() => {
-        $("#recommend_container").hide();
-        $("#main-wrapper").show();
+    $(".toggle-inner").click(() => {
+        chrome.browserAction.setPopup({popup: './recommend_window.html'});
     });
+
+
+
+    // $(".tab-slider--nav li").click(function() {
+    //     $(".tab-slider--body").hide();
+    //     var activeTab = $(this).attr("rel");
+    //     $("#"+activeTab).fadeIn();
+    //       if($(this).attr("rel") == "tab2"){
+    //           $('.tab-slider--tabs').addClass('slide');
+    //       }else{
+    //           $('.tab-slider--tabs').removeClass('slide');
+    //       }
+    //     $(".tab-slider--nav li").removeClass("active");
+    //     $(this).addClass("active");
+    //   });
+    
 
     $("#size-form").submit((event) => {
         event.preventDefault();
@@ -110,13 +115,13 @@ $(document).ready(() => {
 
 
 
-    $(".tab-slider--body").hide();
-    $(".tab-slider--body:first").show();
+    // $(".tab-slider--body").hide();
+    // $(".tab-slider--body:first").show();
 
     $("#body_size_input_container").hide();
     $("#main-wrapper").hide();
     $("#like_container").hide();
-    $("#recommend_container").hide();
+    // $("#recommend_container").hide();
 
     $("#clothes_category_input_container").hide();
     $("#clothes_size_input_container").hide();
