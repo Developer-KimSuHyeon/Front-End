@@ -17,9 +17,13 @@ $(document).ready(() => {
             // console.log("invalid!!")
         }    
     })
-
+    
     let checknum = 0;
     $("#like_menu").click(() => {
+        chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+            var url = tabs[0].url;
+            alert(url)
+        });
         $("#main-wrapper").hide();
         $("#like_container").show();
         $('body').css({
@@ -63,39 +67,16 @@ $(document).ready(() => {
     });
 
     $("#recommend_menu").click(() => {
-        // $("#main-wrapper").hide();
-        // $("#recommend_container").show();
-        // $("#recent_details_container").hide();
-        // $('body').css({
-        //     'background-color': '#fff'
-        // });
-        // $(".tab-slider--body").hide();
-        // $(".tab-slider--body:first").show();
-        // // $("#recommend_menu").load("test.html");
-        window.location.href="recommend_window.html";
-        console.log("open recommendation window")
+        // window.location.href="recommend_window.html";
+        // console.log("open recommendation window")
+        chrome.browserAction.setPopup({popup: "recommend_window.html"});
     });
+
 
     $(".toggle-inner").click(() => {
         chrome.browserAction.setPopup({popup: './recommend_window.html'});
     });
-
-
-
-    // $(".tab-slider--nav li").click(function() {
-    //     $(".tab-slider--body").hide();
-    //     var activeTab = $(this).attr("rel");
-    //     $("#"+activeTab).fadeIn();
-    //       if($(this).attr("rel") == "tab2"){
-    //           $('.tab-slider--tabs').addClass('slide');
-    //       }else{
-    //           $('.tab-slider--tabs').removeClass('slide');
-    //       }
-    //     $(".tab-slider--nav li").removeClass("active");
-    //     $(this).addClass("active");
-    //   });
     
-
     $("#size-form").submit((event) => {
         event.preventDefault();
         if ($("#size-form").get(0).checkValidity()) {
@@ -111,12 +92,6 @@ $(document).ready(() => {
     $(".collapsible").click(function() {
         $('#recent_details_container').show();
       });
-
-
-
-
-    // $(".tab-slider--body").hide();
-    // $(".tab-slider--body:first").show();
 
     $("#body_size_input_container").hide();
     $("#main-wrapper").hide();
