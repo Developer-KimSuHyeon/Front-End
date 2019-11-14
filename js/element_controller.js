@@ -1,30 +1,61 @@
+
 $(document).ready(() => {
+
+    // chrome.extension.sendRequest({method: "getUrl"}, function(response) {
+    //     lasturl = response.data
+    //     console.log(response.data);
+    //     alert(response.data)
+    // });
 
     $("#login_button").click(() => {
         $("#login_container").hide();
-        $("#body_size_input_container").show();
-        console.log("valid!!")
+        $('#main-wrapper').show();
+        //$("#body_size_input_container").show();
+        //console.log("valid!!")
     });
 
     
-    $("#info-form").submit((event) => {
-        event.preventDefault(); //prevent weird form error
-        if ($("#info-form").get(0).checkValidity()) {
-            // console.log('valid!!')
-            $('#body_size_input_container').hide();
-            $('#main-wrapper').show();
-        } else {
-            // console.log("invalid!!")
-        }    
-    })
+    // $("#info-form").submit((event) => {
+    //     event.preventDefault(); //prevent weird form error
+    //     if ($("#info-form").get(0).checkValidity()) {
+    //         // console.log('valid!!')
+    //         $('#body_size_input_container').hide();
+    //         $('#main-wrapper').show();
+    //     } else {
+    //         // console.log("invalid!!")
+    //     }    
+    // })
     
     let checknum = 0;
-    $("#like_menu").click(() => {
+    $("#like-menu").click(() => {
         chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
             var url = tabs[0].url;
             alert(url)
+
+            var urlArray = new Array();
+            var j;
+            var categoryUrl;
+            var currentUrl;
+            chrome.history.search({text: '', maxResults: 10}, function(data) {
+                var i = 0;
+                data.forEach(function(page) {
+                    //console.log(i)
+                    // console.log(page.url);
+                    urlArray.push(page.url)
+                });
+                //alert(urlArray[1]);
+                for(j = 0 ; j < urlArray.length ; j++){
+                    console.log(urlArray[j]);
+                }
+                categoryUrl = urlArray[1];
+                currentUrl = urlArray[0];
+                alert(categoryUrl);
+                alert(currentUrl);
+            });
+            //alert(urlArray[1]);
         });
-        $("#main-wrapper").hide();
+
+        $("#register-container").hide();
         $("#like_container").show();
         $('body').css({
             'background-color': 'rgb(255, 145, 123)'
@@ -51,27 +82,28 @@ $(document).ready(() => {
         }
     });
 
-    $("#input_size_menu").click(() => {
+    $("#register-menu").click(() => {
         $("#main-wrapper").hide();
-        $("#clothes_category_input_container").show();
+        $("#register-container").show();
         $('body').css({
             'background-color': '#fff'
         });
     });
 
-     $(".submit_button_small").click(() => {
+    $("#size-menu").click(() => {
+        $("#register-container").hide();
+        $("#clothes_category_input_container").show();
+    });
 
+     $(".submit_button_small").click(() => {
         $("#clothes_category_input_container").hide();
         $("#clothes_size_input_container").show();
-
     });
 
     $("#recommend_menu").click(() => {
-        // window.location.href="recommend_window.html";
-        // console.log("open recommendation window")
-        chrome.browserAction.setPopup({popup: "recommend_window.html"});
+        window.location.href="recommend_window.html";
+        console.log("open recommendation window")
     });
-
 
     $(".toggle-inner").click(() => {
         chrome.browserAction.setPopup({popup: './recommend_window.html'});
@@ -85,16 +117,12 @@ $(document).ready(() => {
                 'background-color': '#fff'
             });
             $('#main-wrapper').show();
-            
         }   
     })
 
-    $(".collapsible").click(function() {
-        $('#recent_details_container').show();
-      });
-
     $("#body_size_input_container").hide();
     $("#main-wrapper").hide();
+    $("#register-container").hide();
     $("#like_container").hide();
     // $("#recommend_container").hide();
 
@@ -102,3 +130,4 @@ $(document).ready(() => {
     $("#clothes_size_input_container").hide();
 
 });
+

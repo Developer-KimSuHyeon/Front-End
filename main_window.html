@@ -17,10 +17,9 @@
   <link href="./css/toggle_button.css" type="text/css" rel="stylesheet" />
 
   <style type="text/css">
-    @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
-
+  @import url('https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap');
     body {
-      font-family: 'Nanum Gothic';
+      font-family: 'Do Hyeon';
     }
 
     #login_container {
@@ -36,23 +35,24 @@
       text-align: center;
       text-decoration: none;
       display: inline-block;
-      font-size: 12px;
+      font-size: 17px;
+      font: bold;
       cursor: pointer;
       border-radius: 10px;
       outline: 0;
+      font-family: 'Do Hyeon';
     }
   </style>
 </head>
 
 <body>
   <div id="login_container">
-    <img src="./images/img_centime_logo.png"
-      style="width: 100px; height: 100px; margin-bottom: 50px; text-align: center;">
-
+    <img src="./images/img_centime_logo2.png"
+      style="width: 200px; height: 100px; margin-bottom: 30px; text-align: center;">
     <button id="login_button" style="background-color:rgb(255, 145, 123); border: none;">구글 아이디로 로그인</button>
   </div>
 
-  <div id="body_size_input_container">
+  <!-- <div id="body_size_input_container">
     <form id="info-form">
       <strong>키와 몸무게를 입력해주세요</strong>
       <div class="input_group">
@@ -67,7 +67,7 @@
         <button type="submit" id="submit_button">완료</button>
       </div>
     </form>
-  </div>
+  </div> -->
 
   <div id="main-wrapper">
     <label class="toggle-label">
@@ -81,14 +81,20 @@
     </label>
     <div id="main_container">
       <div class="main_menu">
-        <img id="input_size_menu" src="./images/img_taperuler.png" style="width: 70px; height: 70px;">
+        <img id="register-menu" src="./images/img_register.png" style="width: 90px; height: 100px;">
       </div>
       <div class="main_menu">
-        <img id="like_menu" src="./images/img_heart_empty.png" style="width: 70px; height: 70px; margin-top: 8px">
+        <img id="recommend_menu" src="./images/img_recommend.png" style="width: 90px; height: 100px; margin-top: 4px">
       </div>
-      <div class="main_menu">
-        <img id="recommend_menu" src="./images/img_recommend.png" style="width: 70px; height: 70px; margin-top: 8px">
-      </div>
+    </div>
+  </div>
+
+  <div id = "register-container">
+    <div class="size_input_menu">
+        <img id="size-menu" src="./images/img_register_size.png" style="width: 90px; height: 110px; margin-top: 8px">
+    </div>
+    <div class="size_input_menu">
+        <img id="like-menu" src="./images/img_register_clothes.png" style="width: 90px; height: 110px; margin-top: 4px">
     </div>
   </div>
 
@@ -98,11 +104,10 @@
     <button class="fit_button" id="like_column3">wide</button>
   </div>
 
-
   <div id=clothes_category_input_container>
-    <strong>등록하려는 옷의</strong>
+    <strong style = "font-size: 15px;">등록하려는 옷의</strong>
     <br>
-    <strong style="margin-bottom: 5px;">카테고리를 선택해주세요</strong>
+    <strong style="margin-bottom: 5px; font-size: 15px;">카테고리를 선택해주세요</strong>
     <label class="clothes_category_container">outer
       <input type="radio" checked="checked" name="radio">
       <span class="checkmark"></span>
@@ -130,7 +135,7 @@
 
   <div id="clothes_size_input_container">
     <form id="size-form">
-      <strong>등록하려는 옷의 수치를 입력해주세요</strong>
+      <strong style = "font-size: 15px;">등록하려는 옷의 수치를 입력해주세요</strong>
       <div class="input_group">
         <input type="number" required /><span class="highlight"></span><span class="bar"></span>
         <label class="clothes_size">어깨</label>

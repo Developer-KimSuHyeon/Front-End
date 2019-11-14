@@ -3,24 +3,36 @@
     "manifest_version": 2,
     "version": "0.0.1",
     "description" : "draft",
-
-    "icons": {
-        "128": "./images/img_centime_logo.png"
-    },
-
-     "background":
+    
+    "content_scripts" : [
+        {
+            "matches" : [
+                "<all_urls>"
+            ],
+            "js" : ["./jquery-3.4.1.min/jquery-3.4.1.min.js", "./js/element_controller.js", "./js/recommend_controller.js"]
+        }
+    ],
+    
+    "background":
     {
-        "scripts": ["./jquery-3.4.1.min/jquery-3.4.1.min.js",
-            "./js/element_controller.js", "./js/recommend_controller.js",
-        "./js/browser_action.js"]
+        "scripts": ["./js/background.js"]
     },
 
     "browser_action": {
-        "default_popup": "main_window.html"
+
+        "default_popup": "main_window.html",
+        "default_icon" : "./images/img_centime_logo.png",
+        "default_title" : "Centi Me \nclick when you want to find your size!"
     },
+
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
 
     "permissions": [
         "activeTab",
-        "tabs"
-      ]
+        "tabs",
+        "http://*/*",
+        "https://*/*",
+        "chrome://favicon/",
+        "history"
+    ]
 }

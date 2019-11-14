@@ -39,6 +39,10 @@ $(document).ready(() => {
         // $("#main-wrapper").show();
     });
 
+    $(".collapsible").click(function() {
+        $('#recent_details_container').show();
+    });
+
     $(".tab-slider--body").hide();
     $(".tab-slider--body:first").show();
 

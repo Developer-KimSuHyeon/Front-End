@@ -1,7 +1,6 @@
 #recommend_container{
     padding: 10px 5px;
     width: 400px;
-    font-size: 16px;
     text-align: center;
   }
 
@@ -44,7 +43,7 @@
   }
 
   .tab-slider--trigger {
-    font-size: 12px;
+    font-size: 15px;
     line-height: 1;
     font-weight: bold;
     color: rgb(255, 145, 123);
@@ -71,7 +70,7 @@
   }
 
   table.size-table {
-    font-family: "Nanum Gothic";
+    font-family: "Do Hyeon";
     vertical-align: middle;
     border-collapse: collapse;
     text-align: center;
@@ -99,9 +98,8 @@
   }
 
   table.size-table th {
-    font-size: 8px;
+    font-size: 11px;
     padding: 10px;
-    font-weight: bold;
     color: #fff;
     border: 3px dashed #bbbbbb;
     background: rgb(255, 145, 123);
